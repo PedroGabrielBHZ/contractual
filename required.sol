@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >= 0.7.0 <0.9.0;
+pragma solidity ^0.8.0;
 
 contract Required {
     mapping(address => uint) balances;
@@ -14,5 +14,6 @@ contract Required {
         balances[msg.sender] -= amount; 
         (bool sent, ) = payable(msg.sender).call{value: amount}("");
         require(sent, "failed to send Ether");
+        
     }
 }
